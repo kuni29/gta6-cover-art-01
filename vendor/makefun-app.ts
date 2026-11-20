@@ -839,7 +839,8 @@ export function sourceImports(source: string): string[] {
       prev = '/';
       continue;
     }
-    if (IDENT_START.test(ch)) {      const word = readWord();
+    if (IDENT_START.test(ch)) {
+      const word = readWord();
       prev = 'a';
       if (word === 'import') {
         skipSpace();
