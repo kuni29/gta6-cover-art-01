@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio — GTA-style cover art from your photos</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">NC</span>
+    <span class="brand-words"><strong>NEON COAST</strong><em>cover studio</em></span>
+  </div>
+  <p class="topbar-note">Your photos never leave this machine — everything happens in your browser.</p>
+</header>
+
+<main class="app">
+  <section class="stage" id="dropZone" aria-label="Cover preview">
+    <canvas id="cover" width="540" height="675"></canvas>
+    <p class="drop-hint">Drop photos here, or use “Add photos” →</p>
+  </section>
+
+  <aside class="controls" aria-label="Cover controls">
+    <section class="panel-block">
+      <h2>1 · Photos</h2>
+      <div class="row">
+        <label class="btn primary" for="photoInput">Add photos</label>
+        <input id="photoInput" type="file" accept="image/*" multiple hidden>
+        <button class="btn" id="sampleBtn" type="button">Try sample photos</button>
+      </div>
+      <div class="photo-strip" id="photoStrip"></div>
+      <label class="check"><input type="checkbox" id="spreadToggle"> Spread one photo across every panel</label>
+    </section>
+
+    <section class="panel-block">
+      <h2>2 · Panels</h2>
+      <div id="panelList" class="panel-list"></div>
+      <p class="hint">Drag a panel on the cover to reframe it; scroll over it to zoom.</p>
+    </section>
+
+    <section class="panel-block">
+      <h2>3 · Layout &amp; grade</h2>
+      <div class="seg-row" id="layoutRow" role="group" aria-label="Layout"></div>
+      <div class="seg-row" id="gradeRow" role="group" aria-label="Colour grade"></div>
+      <div class="row">
+        <label class="check"><input type="checkbox" id="grainToggle" checked> Film grain</label>
+        <label class="check"><input type="checkbox" id="vignetteToggle" checked> Vignette</label>
+      </div>
+    </section>
+
+    <section class="panel-block">
+      <h2>4 · Words</h2>
+      <label class="field">Kicker <input id="kicker" type="text" maxlength="30" value="Welcome to"></label>
+      <label class="field">Caption <input id="caption" type="text" maxlength="30" value="Neon Coast"></label>
+      <label class="field">Script subtitle <input id="subtitle" type="text" maxlength="30" value="vice season"></label>
+      <label class="field">Badge <input id="badge" type="text" maxlength="18" value="Launch Week"></label>
+      <label class="field">Heat
+        <select id="heat">
+          <option value="0">No stars</option>
+          <option value="1">★</option>
+          <option value="2">★★</option>
+          <option value="3">★★★</option>
+          <option value="4">★★★★</option>
+          <option value="5" selected>★★★★★</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="panel-block">
+      <h2>5 · Export</h2>
+      <label class="field">Post size
+        <select id="sizeSel"></select>
+      </label>
+      <button class="btn export" id="exportBtn" type="button">Export PNG</button>
+      <p id="status" role="status"></p>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">
+  <p>An original fan-made tool. Not affiliated with Rockstar Games or Take-Two Interactive; no game artwork or logos are used. Lettering: Anton &amp; Pacifico (SIL Open Font License, texts in <em>fonts/</em>).</p>
+</footer>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
